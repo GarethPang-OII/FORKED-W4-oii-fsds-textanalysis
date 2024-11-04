@@ -281,7 +281,7 @@ def plot_word_similarities_tsne(tfidf_matrix, feature_names, n_highlight=5, perp
     # Calculate t-SNE for all terms
     tsne = TSNE(n_components=2, 
                 perplexity=min(30, len(feature_names)/4), 
-                random_state=42)
+                random_state=42, metric = 'cosine')
     coords = tsne.fit_transform(term_vectors)
     
     # Plot
@@ -336,7 +336,8 @@ def plot_similarities(tfidf_matrix, labels,
     if method == 'tsne':
         tsne = TSNE(n_components=2, 
                     perplexity=min(30, len(labels)-1),
-                    random_state=42)
+                    random_state=42,
+                    metric = 'cosine')
         coords = tsne.fit_transform(matrix)
     elif method == 'mds':
         mds = MDS(n_components=2, dissimilarity='precomputed', random_state=42)
