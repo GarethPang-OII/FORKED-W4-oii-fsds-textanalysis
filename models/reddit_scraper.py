@@ -34,7 +34,7 @@ class RedditScraper:
         self.base_url = "https://api.reddit.com"
     
     @cache_results
-    def get_subreddit_posts(self, subreddit, limit=100, sort="new"): 
+    def get_subreddit_posts(self, subreddit, limit=100, sort="hot"): 
         """
         Fetches posts from a specified subreddit.
         Args:
